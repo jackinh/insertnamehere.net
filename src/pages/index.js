@@ -13,6 +13,7 @@ const Container = styled.div`
 
 const Logo = styled.div`
   max-width: 400px;
+  width: 100vw;
 `
 
 const IndexPage = ({data: query}) => {
