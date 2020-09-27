@@ -21,6 +21,7 @@ const IndexPage = ({data: query}) => {
     <Container>
       <SEO title="home" />
       <Logo dangerouslySetInnerHTML={{ __html: query.contentfulLandingPage.logo.svg.content }} />
+      <p>some bullshit change</p>
     </Container>
   )
 }
