@@ -1,5 +1,7 @@
+/// <reference path="index.d.ts" />
+
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import styled from "@emotion/styled"
 
 import SEO from "../components/seo"
@@ -16,11 +18,15 @@ const Logo = styled.div`
   width: 100vw;
 `
 
-const IndexPage = ({data: query}) => {
+export interface IndexPageProps extends PageProps {
+  data: IndexPage.Data;
+}
+
+const IndexPage = (props : IndexPageProps) => {
   return (
     <Container>
       <SEO title="home" />
-      <Logo dangerouslySetInnerHTML={{ __html: query.contentfulLandingPage.logo.svg.content }} />
+      <Logo dangerouslySetInnerHTML={{ __html: props.data.contentfulLandingPage.logo.svg.content }} />
     </Container>
   )
 }
