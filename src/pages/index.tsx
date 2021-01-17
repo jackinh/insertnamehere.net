@@ -1,12 +1,21 @@
-/// <reference path="index.d.ts" />
-
 import React from "react"
 import { graphql, PageProps } from "gatsby"
 import styled from "@emotion/styled"
 
 import SEO from "../components/seo"
+import UserPanel from "../components/user-panel"
 
-const Container = styled.div`
+interface Data {
+  contentfulLandingPage: {
+    logo: {
+      svg: {
+        content: string;
+      }
+    }
+  }
+}
+
+const CenteredContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,16 +27,19 @@ const Logo = styled.div`
   width: 100vw;
 `
 
-export interface IndexPageProps extends PageProps {
-  data: IndexPage.Data;
+interface IndexPageProps extends PageProps {
+  data: Data;
 }
 
 const IndexPage = (props : IndexPageProps) => {
   return (
-    <Container>
+    <>
       <SEO title="home" />
-      <Logo dangerouslySetInnerHTML={{ __html: props.data.contentfulLandingPage.logo.svg.content }} />
-    </Container>
+      <UserPanel />
+      <CenteredContainer>
+        <Logo dangerouslySetInnerHTML={{ __html: props.data.contentfulLandingPage.logo.svg.content }} />
+      </CenteredContainer>
+    </>
   )
 }
 
