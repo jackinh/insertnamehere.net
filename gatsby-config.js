@@ -1,5 +1,4 @@
-// NOTE(Jack): Really only used for development having a .env file in the project for environment variables
-require('dotenv').config();
+require('dotenv').config({ path: `./.env.${process.env.NODE_ENV}` });
 
 module.exports = {
   siteMetadata: {
