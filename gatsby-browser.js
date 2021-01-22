@@ -4,5 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import "./src/styles/global.css"
-// You can delete this file if you're not using it
+import './src/styles/global.css'
+import WrapWithRealmProvider from './wrap-with-realm-provider'
+
+export const wrapRootElement = WrapWithRealmProvider;
+

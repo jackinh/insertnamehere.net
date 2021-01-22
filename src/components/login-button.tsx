@@ -1,7 +1,7 @@
 import React from 'react'
 import { Credentials, User} from 'realm-web'
 
-import { RealmApp } from '../mongodb-realm'
+import useRealm from '../services/mongodb-realm'
 
 interface Props {
     setUser: (user: User) => void;
@@ -10,12 +10,13 @@ interface Props {
 }
 
 function LoginButton({setUser, email, password}: Props) {
+    const { realmApp } = useRealm();
     const loginAnonymous = async () => {
         console.info(`email: ${email.current?.value} | password: ${password.current?.value}`);
         const credentials = Credentials.emailPassword(email.current?.value, password.current?.value);
         let user: User;
         try {
-            user = await RealmApp.logIn(credentials);
+            user = await realmApp.logIn(credentials);
         } catch(error) {
             console.error(`Failed logging in! Error: ${error}`);
             return;

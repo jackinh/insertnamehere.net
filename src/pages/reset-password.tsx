@@ -3,7 +3,7 @@ import { PageProps } from 'gatsby';
 import React from 'react'
 
 import { Text, GetTokenAndTokenIdFromSearch } from '../common';
-import { RealmApp } from '../mongodb-realm'
+import useRealm from '../services/mongodb-realm'
 
 const PanelDiv = styled.div`
     display: flex;
@@ -18,6 +18,7 @@ function ResetPasswordPage({ location }: PageProps) {
         return <>Error!</>
     }
 
+    const { realmApp } = useRealm();
     const { token, tokenId } = params;
     const [resettingPassword, setResettingPassword] = React.useState(false);
     const [resetEmailSent, setResetEmailSent] = React.useState(false);
@@ -26,7 +27,7 @@ function ResetPasswordPage({ location }: PageProps) {
     const resetPassword = async () => {
         setResettingPassword(true);
         try {
-            await RealmApp.emailPasswordAuth.resetPassword(token, tokenId, newPassRef.current?.value);
+            await realmApp.emailPasswordAuth.resetPassword(token, tokenId, newPassRef.current?.value);
         } catch(error) {
             console.error(`Ran into an error resetting user password on mongodb cloud! Error: ${error}`);
             // TODO(Jack): Make error visible in html

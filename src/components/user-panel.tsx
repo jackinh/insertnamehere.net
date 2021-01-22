@@ -6,7 +6,7 @@ import { css } from '@emotion/core'
 import UserDetail from './user-detail'
 import LoginButton from './login-button'
 import LogoutButton from './logout-button'
-import { RealmApp } from '../mongodb-realm'
+import useRealm from '../services/mongodb-realm'
 import { Text } from '../common'
 
 // NOTE(Jack): I want to use the object style (like Text above) but I'm not sure how to use the selectors very well
@@ -17,17 +17,18 @@ margin: 1em;
 position: absolute;
 right: 0%;
 
-p:nth-child(n) {
+p:nth-of-type(n) {
     margin: 0 0.3em 0 0;
 }
 
-input:nth-child(n) {
+input:nth-of-type(n) {
     margin: 0 0.7em 0 0;
 }
 `;
 
 function UserPanel() {
-    const [user, setUser] = React.useState<User | null>(RealmApp.currentUser);
+    const { realmApp } = useRealm();
+    const [user, setUser] = React.useState<User | null>(realmApp.currentUser);
     const emailRef = React.useRef<HTMLInputElement>();
     const passRef = React.useRef<HTMLInputElement>();
 
