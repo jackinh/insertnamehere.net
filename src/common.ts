@@ -9,10 +9,12 @@ export const Text = styled.p(
 const tokenSearchKey = "token"
 const tokenIdSearchKey = "tokenId"
 
-export function GetTokenAndTokenIdFromSearch(search: string) : { token: string; tokenId: string } | undefined {    
+export function GetTokenAndTokenIdFromSearch(search: string) : { token: string; tokenId: string } | undefined {
+    if(!search) return;
+
     let searchParams = new URLSearchParams(search);
     if(!searchParams.has(tokenSearchKey) || !searchParams.has(tokenIdSearchKey)) {
-        console.error(`Missing ${tokenSearchKey} or ${tokenIdSearchKey} in page search '${location.search}'`)
+        console.error(`Missing ${tokenSearchKey} or ${tokenIdSearchKey} in search '${search}'`);
         return;
     }
 
