@@ -1,5 +1,5 @@
 import React from 'react'
-import { App, Credentials, User} from 'realm-web'
+import { Credentials, User} from 'realm-web'
 
 import { RealmApp } from '../mongodb-realm'
 
