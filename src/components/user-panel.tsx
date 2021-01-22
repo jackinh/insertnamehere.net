@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react'
-import { User } from 'realm-web'
-import { css } from '@emotion/core'
+import { User, Credentials } from 'realm-web'
 
 import UserDetail from './user-detail'
 import LoginButton from './login-button'
@@ -32,6 +31,20 @@ function UserPanel() {
     const emailRef = React.useRef<HTMLInputElement>();
     const passRef = React.useRef<HTMLInputElement>();
 
+    const loginWithEmailAndPassword = async () => {
+        if(!emailRef.current || !passRef.current) return;
+
+        const credentials = Credentials.emailPassword(emailRef.current?.value, passRef.current?.value);
+        let user: User;
+        try {
+            user = await realmApp.logIn(credentials);
+        } catch(error) {
+            console.error(`Failed logging in! Error: ${error}`);
+            return;
+        }
+        setUser(user);
+    };
+
     return (
         <PanelDiv>
             {
@@ -48,7 +61,7 @@ function UserPanel() {
                             <input type="text" required ref={emailRef} />
                             <Text>Password:</Text>
                             <input type="password" required ref={passRef} />
-                            <LoginButton setUser={setUser} email={emailRef} password={passRef} />
+                            <LoginButton loginWithEmailAndPassword={loginWithEmailAndPassword} />
                         </>
                     )
             }
