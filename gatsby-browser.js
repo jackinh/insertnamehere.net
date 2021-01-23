@@ -5,7 +5,4 @@
  */
 
 import './src/styles/global.css'
-import WrapWithRealmProvider from './wrap-with-realm-provider'
-
-export const wrapRootElement = WrapWithRealmProvider;
 

@@ -3,7 +3,3 @@
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
-
-import WrapWithRealmProvider from './wrap-with-realm-provider'
-
-export const wrapRootElement = WrapWithRealmProvider;
