@@ -42,5 +42,6 @@
   },
   "resolutions": {
     "final-form": "4.20.1"
-  }
+  },
+  "packageManager": "yarn@2.4.3"
 }
