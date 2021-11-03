@@ -2,8 +2,9 @@ import React from "react";
 import Markdown from "react-markdown";
 import { Container } from "../container";
 import { Section } from "../section";
+import type { PagesBlocksContent } from '../../.tina/__generated__/types';
 
-export const Content = ({ data }) => {
+export const Content = ({ data }: { data: PagesBlocksContent}) => {
   return (
     <Section color={data.color}>
       <Container

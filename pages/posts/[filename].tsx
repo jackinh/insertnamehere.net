@@ -1,6 +1,5 @@
 import { Post } from "../../components/post";
-import { getStaticPropsForTina, staticRequest } from "tinacms";
-import { layoutQueryFragment } from "../../components/layout";
+import { getStaticPropsForTina, staticRequest, gql } from "tinacms";
 import type { PostsDocument } from "../../.tina/__generated__/types";
 import FourOhFour from "../404";
 
@@ -19,9 +18,8 @@ export default function BlogPostPage(
 
 export const getStaticProps = async ({ params }) => {
   const tinaProps = (await getStaticPropsForTina({
-    query: `#graphql
+    query: gql`
       query BlogPostQuery($relativePath: String!) {
-        ${layoutQueryFragment}
         getPostsDocument(relativePath: $relativePath) {
           data {
             title
@@ -58,7 +56,7 @@ export const getStaticProps = async ({ params }) => {
  */
 export const getStaticPaths = async () => {
   const postsListData = (await staticRequest({
-    query: `#graphql
+    query: gql`
       {
         getPostsList {
           edges {

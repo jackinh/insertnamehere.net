@@ -1,12 +1,19 @@
 const withSvgr = require("next-svgr");
 
-module.exports = withSvgr({
-  async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/home",
-      },
-    ];
-  },
-});
+const nextConfig = withSvgr(
+  /**
+   * @type {import('next').NextConfig}
+   */
+  {
+    async rewrites() {
+      return [
+        {
+          source: "/",
+          destination: "/home",
+        }
+      ]
+    }
+  }
+);
+
+module.exports = nextConfig;

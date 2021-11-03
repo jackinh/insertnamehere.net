@@ -6,7 +6,9 @@
     "dev": "yarn tinacms server:start -c \"next dev -p 5300\"",
     "build": "yarn tinacms server:start -c \"next build\"",
     "start": "yarn tinacms server:start -c \"next start -p 5300\"",
-    "export": "yarn build && next export"
+    "export": "yarn build && next export",
+    "types": "yarn tinacms schema:types",
+    "compile": "yarn tinacms schema:compile"
   },
   "devDependencies": {
     "@tinacms/cli": "^0.55.2",

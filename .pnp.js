@@ -7010,7 +7010,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["progress", "npm:2.0.3"],
             ["prompts", "npm:2.4.1"],
             ["tsup", "virtual:04b9fca5f3eea56ba85dd25f3b030564c84e62268cd3588fae94d0aa7590243d4d884ede9d7e211ae51c1d73314e05eaa27466603c9d1676878750ffbebc8f2b#npm:4.6.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=8133ad"],
+            ["typescript", "patch:typescript@npm%3A4.4.4#builtin<compat/typescript>::version=4.4.4&hash=8133ad"],
             ["yup", "npm:0.32.9"]
           ],
           "linkType": "HARD",
@@ -7154,7 +7154,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["simple-git", "npm:1.126.0"],
             ["styled-components", "virtual:c0f5420fbd5de66f43239af344a8daf372264b8aebd64372bac9ad3ab57e7dc134ddf9107f3a13f46f126cda01fd5b47f92fa78f511dbc0b18d2657764c41af6#npm:5.3.0"],
             ["tsup", "npm:3.12.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=8133ad"],
+            ["typescript", "patch:typescript@npm%3A4.4.4#builtin<compat/typescript>::version=4.4.4&hash=8133ad"],
             ["webfontloader", "npm:1.6.28"]
           ],
           "packagePeers": [
@@ -7201,7 +7201,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["simple-git", "npm:1.126.0"],
             ["styled-components", "virtual:c0f5420fbd5de66f43239af344a8daf372264b8aebd64372bac9ad3ab57e7dc134ddf9107f3a13f46f126cda01fd5b47f92fa78f511dbc0b18d2657764c41af6#npm:5.3.0"],
             ["tsup", "npm:3.12.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=8133ad"],
+            ["typescript", "patch:typescript@npm%3A4.4.4#builtin<compat/typescript>::version=4.4.4&hash=8133ad"],
             ["webfontloader", "npm:1.6.28"]
           ],
           "packagePeers": [
@@ -7248,7 +7248,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["simple-git", "npm:1.126.0"],
             ["styled-components", "virtual:c0f5420fbd5de66f43239af344a8daf372264b8aebd64372bac9ad3ab57e7dc134ddf9107f3a13f46f126cda01fd5b47f92fa78f511dbc0b18d2657764c41af6#npm:5.3.0"],
             ["tsup", "npm:3.12.1"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=8133ad"],
+            ["typescript", "patch:typescript@npm%3A4.4.4#builtin<compat/typescript>::version=4.4.4&hash=8133ad"],
             ["webfontloader", "npm:1.6.28"]
           ],
           "packagePeers": [
@@ -21209,7 +21209,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["resolve-from", "npm:5.0.0"],
             ["rollup", "npm:2.53.3"],
             ["sucrase", "npm:3.20.0"],
-            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=8133ad"]
+            ["typescript", "patch:typescript@npm%3A4.4.4#builtin<compat/typescript>::version=4.4.4&hash=8133ad"]
           ],
           "packagePeers": [
             "@types/typescript",
@@ -21290,10 +21290,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=8133ad", {
-          "packageLocation": "./.yarn/cache/typescript-patch-b60c93698f-7e9040a3ee.zip/node_modules/typescript/",
+        ["patch:typescript@npm%3A4.4.4#builtin<compat/typescript>::version=4.4.4&hash=8133ad", {
+          "packageLocation": "./.yarn/cache/typescript-patch-ee3f5cf8e6-d1c6c0a705.zip/node_modules/typescript/",
           "packageDependencies": [
-            ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=8133ad"]
+            ["typescript", "patch:typescript@npm%3A4.4.4#builtin<compat/typescript>::version=4.4.4&hash=8133ad"]
           ],
           "linkType": "HARD",
         }]

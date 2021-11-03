@@ -89,10 +89,8 @@
     "type": "PagesBlocks",
     "resolveType": "unionData",
     "typeMap": {
-      "hero": "PagesBlocksHero",
-      "features": "PagesBlocksFeatures",
       "content": "PagesBlocksContent",
-      "testimonial": "PagesBlocksTestimonial"
+      "layout": "PagesBlocksLayout"
     }
   },
   "GlobalDocument": {

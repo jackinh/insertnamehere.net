@@ -3,7 +3,7 @@ import { Button } from "tinacms";
 import { Container } from "../../components/container";
 import { Section } from "../../components/section";
 import { useEditState } from "tinacms/dist/edit-state";
-import { ThemeContext } from "../../components/theme";
+// import { ThemeContext } from "../../components/theme";
 import React from "react";
 import {
   buttonColorClasses,
@@ -15,7 +15,7 @@ import { BiLogOut, BiArrowBack, BiHomeAlt, BiLogIn } from "react-icons/bi";
 const GoToEditPage: React.FC = () => {
   const { edit, setEdit } = useEditState();
   const router = useRouter();
-  const theme = React.useContext(ThemeContext);
+  // const theme = React.useContext(ThemeContext);
   return (
     <Section className="flex-1 bg-white dark:bg-gray-900 dark:from-gray-900 from-white to-white dark:to-gray-900">
       <Container size="large">
@@ -44,9 +44,7 @@ const GoToEditPage: React.FC = () => {
           {edit && (
             <>
               <button
-                className={`z-10 cursor-pointer relative flex items-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out rounded transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap ${
-                  invertedButtonColorClasses[theme.color]
-                }`}
+                className={`z-10 cursor-pointer relative flex items-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out rounded transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap`}
                 onClick={() => {
                   router.push("/");
                 }}
@@ -55,9 +53,7 @@ const GoToEditPage: React.FC = () => {
                 home page
               </button>
               <button
-                className={`z-10 cursor-pointer relative flex items-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out rounded transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap ${
-                  invertedButtonColorClasses[theme.color]
-                }`}
+                className={`z-10 cursor-pointer relative flex items-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out rounded transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap`}
                 onClick={() => {
                   router.back();
                 }}
@@ -65,9 +61,7 @@ const GoToEditPage: React.FC = () => {
                 <BiArrowBack className={`mr-1.5 w-6 h-6 opacity-80`} /> Go Back
               </button>
               <a
-                className={`group inline-flex items-center font-semibold text-lg transition duration-150 ease-out ${
-                  linkButtonColorClasses[theme.color]
-                }`}
+                className={`group inline-flex items-center font-semibold text-lg transition duration-150 ease-out`}
                 onClick={() => {
                   setEdit(!edit);
                 }}
@@ -81,9 +75,7 @@ const GoToEditPage: React.FC = () => {
           {!edit && (
             <>
               <button
-                className={`z-10 cursor-pointer relative flex items-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out  rounded transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap ${
-                  buttonColorClasses[theme.color]
-                }`}
+                className={`z-10 cursor-pointer relative flex items-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out  rounded transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap`}
                 onClick={() => {
                   setEdit(!edit);
                 }}
@@ -92,9 +84,7 @@ const GoToEditPage: React.FC = () => {
                 Tina Cloud
               </button>
               <button
-                className={`group inline-flex items-center font-semibold text-lg transition duration-150 ease-out ${
-                  linkButtonColorClasses[theme.color]
-                }`}
+                className={`group inline-flex items-center font-semibold text-lg transition duration-150 ease-out`}
                 onClick={() => {
                   router.push("/");
                 }}
@@ -103,9 +93,7 @@ const GoToEditPage: React.FC = () => {
                 home page
               </button>
               <button
-                className={`group inline-flex items-center font-semibold text-lg transition duration-150 ease-out ${
-                  linkButtonColorClasses[theme.color]
-                }`}
+                className={`group inline-flex items-center font-semibold text-lg transition duration-150 ease-out`}
                 onClick={() => {
                   router.back();
                 }}

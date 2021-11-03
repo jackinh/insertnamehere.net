@@ -220,40 +220,6 @@ export type PostsConnection = Connection & {
   edges?: Maybe<Array<Maybe<PostsConnectionEdges>>>;
 };
 
-export type GlobalHeaderIcon = {
-  __typename?: 'GlobalHeaderIcon';
-  color?: Maybe<Scalars['String']>;
-  style?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-};
-
-export type GlobalHeaderNav = {
-  __typename?: 'GlobalHeaderNav';
-  href?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
-};
-
-export type GlobalHeader = {
-  __typename?: 'GlobalHeader';
-  icon?: Maybe<GlobalHeaderIcon>;
-  color?: Maybe<Scalars['String']>;
-  nav?: Maybe<Array<Maybe<GlobalHeaderNav>>>;
-};
-
-export type GlobalFooterSocial = {
-  __typename?: 'GlobalFooterSocial';
-  facebook?: Maybe<Scalars['String']>;
-  twitter?: Maybe<Scalars['String']>;
-  instagram?: Maybe<Scalars['String']>;
-  github?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooter = {
-  __typename?: 'GlobalFooter';
-  color?: Maybe<Scalars['String']>;
-  social?: Maybe<GlobalFooterSocial>;
-};
-
 export type GlobalTheme = {
   __typename?: 'GlobalTheme';
   color?: Maybe<Scalars['String']>;
@@ -264,8 +230,6 @@ export type GlobalTheme = {
 
 export type Global = {
   __typename?: 'Global';
-  header?: Maybe<GlobalHeader>;
-  footer?: Maybe<GlobalFooter>;
   theme?: Maybe<GlobalTheme>;
 };
 
@@ -321,64 +285,30 @@ export type AuthorsConnection = Connection & {
   edges?: Maybe<Array<Maybe<AuthorsConnectionEdges>>>;
 };
 
-export type PagesBlocksHeroActions = {
-  __typename?: 'PagesBlocksHeroActions';
-  label?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  icon?: Maybe<Scalars['Boolean']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksHeroImage = {
-  __typename?: 'PagesBlocksHeroImage';
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksHero = {
-  __typename?: 'PagesBlocksHero';
-  tagline?: Maybe<Scalars['String']>;
-  headline?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-  actions?: Maybe<Array<Maybe<PagesBlocksHeroActions>>>;
-  image?: Maybe<PagesBlocksHeroImage>;
-  color?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksFeaturesItemsIcon = {
-  __typename?: 'PagesBlocksFeaturesItemsIcon';
-  color?: Maybe<Scalars['String']>;
-  style?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksFeaturesItems = {
-  __typename?: 'PagesBlocksFeaturesItems';
-  icon?: Maybe<PagesBlocksFeaturesItemsIcon>;
-  title?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksFeatures = {
-  __typename?: 'PagesBlocksFeatures';
-  items?: Maybe<Array<Maybe<PagesBlocksFeaturesItems>>>;
-  color?: Maybe<Scalars['String']>;
-};
-
 export type PagesBlocksContent = {
   __typename?: 'PagesBlocksContent';
   body?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocksTestimonial = {
-  __typename?: 'PagesBlocksTestimonial';
-  quote?: Maybe<Scalars['String']>;
-  author?: Maybe<Scalars['String']>;
-  color?: Maybe<Scalars['String']>;
+export type PagesBlocksLayoutHeaderNav = {
+  __typename?: 'PagesBlocksLayoutHeaderNav';
+  slug: Scalars['String'];
+  friendlyName?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksContent | PagesBlocksTestimonial;
+export type PagesBlocksLayoutHeader = {
+  __typename?: 'PagesBlocksLayoutHeader';
+  image?: Maybe<Scalars['String']>;
+  nav?: Maybe<Array<Maybe<PagesBlocksLayoutHeaderNav>>>;
+};
+
+export type PagesBlocksLayout = {
+  __typename?: 'PagesBlocksLayout';
+  header?: Maybe<PagesBlocksLayoutHeader>;
+};
+
+export type PagesBlocks = PagesBlocksContent | PagesBlocksLayout;
 
 export type Pages = {
   __typename?: 'Pages';
@@ -472,35 +402,6 @@ export type PostsMutation = {
   body?: Maybe<Scalars['String']>;
 };
 
-export type GlobalHeaderIconMutation = {
-  color?: Maybe<Scalars['String']>;
-  style?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-};
-
-export type GlobalHeaderNavMutation = {
-  href?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
-};
-
-export type GlobalHeaderMutation = {
-  icon?: Maybe<GlobalHeaderIconMutation>;
-  color?: Maybe<Scalars['String']>;
-  nav?: Maybe<Array<Maybe<GlobalHeaderNavMutation>>>;
-};
-
-export type GlobalFooterSocialMutation = {
-  facebook?: Maybe<Scalars['String']>;
-  twitter?: Maybe<Scalars['String']>;
-  instagram?: Maybe<Scalars['String']>;
-  github?: Maybe<Scalars['String']>;
-};
-
-export type GlobalFooterMutation = {
-  color?: Maybe<Scalars['String']>;
-  social?: Maybe<GlobalFooterSocialMutation>;
-};
-
 export type GlobalThemeMutation = {
   color?: Maybe<Scalars['String']>;
   font?: Maybe<Scalars['String']>;
@@ -509,8 +410,6 @@ export type GlobalThemeMutation = {
 };
 
 export type GlobalMutation = {
-  header?: Maybe<GlobalHeaderMutation>;
-  footer?: Maybe<GlobalFooterMutation>;
   theme?: Maybe<GlobalThemeMutation>;
 };
 
@@ -519,60 +418,28 @@ export type AuthorsMutation = {
   avatar?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocksHeroActionsMutation = {
-  label?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  icon?: Maybe<Scalars['Boolean']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksHeroImageMutation = {
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksHeroMutation = {
-  tagline?: Maybe<Scalars['String']>;
-  headline?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-  actions?: Maybe<Array<Maybe<PagesBlocksHeroActionsMutation>>>;
-  image?: Maybe<PagesBlocksHeroImageMutation>;
-  color?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksFeaturesItemsIconMutation = {
-  color?: Maybe<Scalars['String']>;
-  style?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksFeaturesItemsMutation = {
-  icon?: Maybe<PagesBlocksFeaturesItemsIconMutation>;
-  title?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksFeaturesMutation = {
-  items?: Maybe<Array<Maybe<PagesBlocksFeaturesItemsMutation>>>;
-  color?: Maybe<Scalars['String']>;
-};
-
 export type PagesBlocksContentMutation = {
   body?: Maybe<Scalars['String']>;
   color?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocksTestimonialMutation = {
-  quote?: Maybe<Scalars['String']>;
-  author?: Maybe<Scalars['String']>;
-  color?: Maybe<Scalars['String']>;
+export type PagesBlocksLayoutHeaderNavMutation = {
+  slug?: Maybe<Scalars['String']>;
+  friendlyName?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksLayoutHeaderMutation = {
+  image?: Maybe<Scalars['String']>;
+  nav?: Maybe<Array<Maybe<PagesBlocksLayoutHeaderNavMutation>>>;
+};
+
+export type PagesBlocksLayoutMutation = {
+  header?: Maybe<PagesBlocksLayoutHeaderMutation>;
 };
 
 export type PagesBlocksMutation = {
-  hero?: Maybe<PagesBlocksHeroMutation>;
-  features?: Maybe<PagesBlocksFeaturesMutation>;
   content?: Maybe<PagesBlocksContentMutation>;
-  testimonial?: Maybe<PagesBlocksTestimonialMutation>;
+  layout?: Maybe<PagesBlocksLayoutMutation>;
 };
 
 export type PagesMutation = {

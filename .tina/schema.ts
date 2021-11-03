@@ -1,6 +1,7 @@
 import { defineSchema } from "@tinacms/cli";
 import type { TinaCollection, TinaTemplate, TinaField } from "@tinacms/cli";
 
+/* 
 const iconSchema: TinaField = {
   type: "object",
   label: "Icon",
@@ -157,62 +158,7 @@ const iconSchema: TinaField = {
     },
   ],
 };
-
-const defaultFeature = {
-  title: "Here's Another Feature",
-  text: "This is where you might talk about the feature, if this wasn't just filler text.",
-  icon: {
-    color: "",
-    style: "float",
-    name: "",
-  },
-};
-
-const featureBlockShema: TinaTemplate = {
-  name: "features",
-  label: "Features",
-  ui: {
-    defaultItem: {
-      items: [defaultFeature, defaultFeature, defaultFeature],
-    },
-  },
-  fields: [
-    {
-      type: "object",
-      label: "Feature Items",
-      name: "items",
-      list: true,
-      ui: {
-        defaultItem: {
-          ...defaultFeature,
-        },
-      },
-      fields: [
-        iconSchema,
-        {
-          type: "string",
-          label: "Title",
-          name: "title",
-        },
-        {
-          type: "string",
-          label: "Text",
-          name: "text",
-        },
-      ],
-    },
-    {
-      type: "string",
-      label: "Color",
-      name: "color",
-      options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
-      ],
-    },
-  ],
-};
+*/
 
 const contentBlockSchema: TinaTemplate = {
   name: "content",
@@ -244,142 +190,45 @@ const contentBlockSchema: TinaTemplate = {
   ],
 };
 
-const testimonialBlockSchema: TinaTemplate = {
-  name: "testimonial",
-  label: "Testimonial",
-  ui: {
-    defaultItem: {
-      quote:
-        "There are only two hard things in Computer Science: cache invalidation and naming things.",
-      author: "Phil Karlton",
-      color: "primary",
-    },
-  },
+const layoutBlockSchema: TinaTemplate = {
+  name: "layout",
+  label: "Layout",
   fields: [
     {
-      type: "string",
-      ui: {
-        component: "textarea",
-      },
-      label: "Quote",
-      name: "quote",
-    },
-    {
-      type: "string",
-      label: "Author",
-      name: "author",
-    },
-    {
-      type: "string",
-      label: "Color",
-      name: "color",
-      options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
-      ],
-    },
-  ],
-};
-
-const heroBlockSchema: TinaTemplate = {
-  name: "hero",
-  label: "Hero",
-  ui: {
-    defaultItem: {
-      tagline: "Here's some text above the other text",
-      headline: "This Big Text is Totally Awesome",
-      text: "Phasellus scelerisque, libero eu finibus rutrum, risus risus accumsan libero, nec molestie urna dui a leo.",
-    },
-  },
-  fields: [
-    {
-      type: "string",
-      label: "Tagline",
-      name: "tagline",
-    },
-    {
-      type: "string",
-      label: "Headline",
-      name: "headline",
-    },
-    {
-      type: "string",
-      label: "Text",
-      name: "text",
-      ui: {
-        component: "markdown",
-      },
-    },
-    {
-      label: "Actions",
-      name: "actions",
       type: "object",
-      list: true,
-      ui: {
-        defaultItem: {
-          label: "Action Label",
-          type: "button",
-          icon: true,
-          link: "/",
-        },
-      },
+      name: "header",
+      label: "Header",
       fields: [
         {
-          label: "Label",
-          name: "label",
-          type: "string",
-        },
-        {
-          label: "Type",
-          name: "type",
-          type: "string",
-          options: [
-            { label: "Button", value: "button" },
-            { label: "Link", value: "link" },
-          ],
-        },
-        {
-          label: "Icon",
-          name: "icon",
-          type: "boolean",
-        },
-        {
-          label: "Link",
-          name: "link",
-          type: "string",
-        },
-      ],
-    },
-    {
-      type: "object",
-      label: "Image",
-      name: "image",
-      fields: [
-        {
-          name: "src",
-          label: "Image Source",
           type: "image",
+          name: "image",
+          label: "Image"
         },
         {
-          name: "alt",
-          label: "Alt Text",
-          type: "string",
-        },
-      ],
-    },
-    {
-      type: "string",
-      label: "Color",
-      name: "color",
-      options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
-      ],
-    },
-  ],
-};
+          type: "object",
+          name: "nav",
+          label: "Navigation",
+          list: true,
+          fields: [
+            {
+              type: "string",
+              name: "slug",
+              label: "URI",
+              required: true
+            },
+            {
+              type: "string",
+              name: "friendlyName",
+              label: "Friendly Name",
+              required: false,
+              description: "Can be used to give a more beautiful name, if so desired. Otherwise, the URI will be used"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 
 export default defineSchema({
   collections: [
@@ -437,90 +286,6 @@ export default defineSchema({
       name: "global",
       path: "content/global",
       fields: [
-        {
-          type: "object",
-          label: "Header",
-          name: "header",
-          fields: [
-            iconSchema,
-            {
-              type: "string",
-              label: "Color",
-              name: "color",
-              options: [
-                { label: "Default", value: "default" },
-                { label: "Primary", value: "primary" },
-              ],
-            },
-            {
-              type: "object",
-              label: "Nav Links",
-              name: "nav",
-              list: true,
-              ui: {
-                defaultItem: {
-                  href: "home",
-                  label: "Home",
-                },
-              },
-              fields: [
-                {
-                  type: "string",
-                  label: "Link",
-                  name: "href",
-                },
-                {
-                  type: "string",
-                  label: "Label",
-                  name: "label",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          type: "object",
-          label: "Footer",
-          name: "footer",
-          fields: [
-            {
-              type: "string",
-              label: "Color",
-              name: "color",
-              options: [
-                { label: "Default", value: "default" },
-                { label: "Primary", value: "primary" },
-              ],
-            },
-            {
-              type: "object",
-              label: "Social Links",
-              name: "social",
-              fields: [
-                {
-                  type: "string",
-                  label: "Facebook",
-                  name: "facebook",
-                },
-                {
-                  type: "string",
-                  label: "Twitter",
-                  name: "twitter",
-                },
-                {
-                  type: "string",
-                  label: "Instagram",
-                  name: "instagram",
-                },
-                {
-                  type: "string",
-                  label: "Github",
-                  name: "github",
-                },
-              ],
-            },
-          ],
-        },
         {
           type: "object",
           label: "Theme",
@@ -650,12 +415,11 @@ export default defineSchema({
           name: "blocks",
           label: "Sections",
           templates: [
-            heroBlockSchema,
-            featureBlockShema,
             contentBlockSchema,
-            testimonialBlockSchema,
+            layoutBlockSchema
           ],
         },
+        
       ],
     },
   ],

@@ -5,10 +5,13 @@ import { Footer } from "./footer";
 import layoutData from "../content/global/index.json";
 import { Theme } from "./theme";
 
-export const Layout = ({ rawData = "", data = layoutData, children }) => {
+/**
+ * @deprecated old layout, don't use
+ */
+export const LayoutOld = ({ rawData = "", data = layoutData, children }) => {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Tina</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         {data.theme.font === "nunito" && (
@@ -50,12 +53,12 @@ export const Layout = ({ rawData = "", data = layoutData, children }) => {
             icon={data?.header.icon}
           />
         </div>
-      </Theme>
+      </Theme> */}
     </>
   );
 };
 
-export const layoutQueryFragment = `
+export const layoutOldQueryFragment = `
   getGlobalDocument(relativePath: "index.json") {
     data {
       header {

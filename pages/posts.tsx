@@ -1,8 +1,7 @@
-import { getStaticPropsForTina } from "tinacms";
+import { getStaticPropsForTina, gql } from "tinacms";
 import { Container } from "../components/container";
 import { Section } from "../components/section";
 import { Posts } from "../components/posts";
-import { layoutQueryFragment } from "../components/layout";
 import type { PostsConnection } from "../.tina/__generated__/types";
 
 export default function HomePage(
@@ -21,9 +20,8 @@ export default function HomePage(
 
 export const getStaticProps = async () => {
   const tinaProps = (await getStaticPropsForTina({
-    query: `#graphql
+    query: gql`
       query PageQuery {
-        ${layoutQueryFragment}
         getPostsList {
           edges {
             node {
